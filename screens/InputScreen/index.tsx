@@ -1,11 +1,7 @@
 import * as React from "react";
 import { Button, Text, View } from "react-native";
 import { Input } from "../../components/Input";
-import Color from "../../theme/Color";
-import {
-  heightPercentageToDP as hp,
-  widthPercentageToDP as wp,
-} from "react-native-responsive-screen";
+import Styles from "../../Style";
 
 const InputScreen = ({ navigation }: any) => {
   const [email, setEmail] = React.useState("");
@@ -13,27 +9,29 @@ const InputScreen = ({ navigation }: any) => {
 
   return (
     <View
-      style={{
-        width: wp("100%"),
-        flex: 1,
-        padding: 15,
-        backgroundColor: Color.white,
-      }}
+      style={Styles.container}
     >
-      <Text style={{fontSize: hp('2%')}}>Email:</Text>
-      <Input
-        leftIcon={"mail"}
-        onChangeText={(txt: any) => setEmail(txt)}
-        value={email}
-      />
-      <Text style={{fontSize: hp('2%')}}>Password:</Text>
-      <Input
-        secureTextEntry={true}
-        onChangeText={(txt: any) => setPassword(txt)}
-        value={password}
-        rightIcon
-        localRightIcon={"eye"}
-      />
+      <View style={Styles.inputContainer}>
+        <Text style={Styles.labelStyle}>Email:</Text>
+        <Input
+          leftIcon={"mail"}
+          onChangeText={(txt: any) => setEmail(txt)}
+          value={email}
+          containerStyle={Styles.inputBorder}
+        />
+      </View>
+      <View style={Styles.inputContainer}>
+        <Text style={Styles.labelStyle}>Password:</Text>
+        <Input
+          secureTextEntry={true}
+          onChangeText={(txt: any) => setPassword(txt)}
+          value={password}
+          containerStyle={Styles.inputBottomBorder}
+          rightIcon
+          localRightIcon={"eye"}
+        />
+      </View>
+
       <Button
         onPress={() => alert(JSON.stringify({ email, password }))}
         title={"submit"}

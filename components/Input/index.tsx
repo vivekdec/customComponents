@@ -40,14 +40,10 @@ export const Input = (props: any) => {
     <View
       style={{
         flexDirection: "row",
-        marginVertical: 10,
         height: textArea ? hp(10) : hp(5.5),
-        borderRadius: 5,
         alignSelf: "center",
         backgroundColor: "transparent",
         borderStyle: "solid",
-        borderWidth: 1,
-        borderColor: "#afafaf",
         width: "100%",
         ...containerStyle,
       }}

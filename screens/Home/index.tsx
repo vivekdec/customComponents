@@ -8,6 +8,10 @@ const Home = ({ navigation }: any) => {
         title="Go to Input component"
         onPress={() => navigation.navigate("InputScreen")}
       />
+      <Button
+        title="Go to Button component"
+        onPress={() => navigation.navigate("ButtonScreen")}
+      />
     </View>
   );
 };
